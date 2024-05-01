@@ -1,0 +1,167 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - 'http://localhost:3000'
+              - 'https://localhost:3000'
+              - 'http://172.16.212.76:3000'
+            allow-credentials: true # JWT ? ??? ??? ???? ??? ? ?? true
+            allowedHeaders: '*'
+            exposedHeaders: '*'
+            allowedMethods: # ???? ???? ??? ??? ??? ?? ??? ???? ????? ?? ??? ??.
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+
+      routes:
+
+        - id: channel
+          uri: lb://CHANNEL
+          predicates:
+            - Path=/channel/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: channel-api
+          uri: lb://CHANNEL
+          predicates:
+            - Path=/channel-api/**
+
+        - id: member
+          uri: lb://MEMBER
+          predicates:
+            - Path=/member/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory
+              args:
+                headerName: Authorization
+                granted: Bearer
+        - id: member-api
+          uri: lb://MEMBER
+          predicates:
+            - Path=/member-api/**
+        - id: login
+          uri: lb://MEMBER
+          predicates:
+            - Path=/oauth/**
+
+        - id: schedule
+          uri: lb://SCHEDULE
+          predicates:
+            - Path=/schedule/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: schedule-api
+          uri: lb://SCHEDULE
+          predicates:
+            - Path=/schedule-api/**
+
+        - id: board
+          uri: lb://BOARD
+          predicates:
+            - Path=/board/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: board-api
+          uri: lb://BOARD
+          predicates:
+            - Path=/board-api/**
+
+        - id: reply
+          uri: lb://REPLY
+          predicates:
+            - Path=/reply/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: reply-api
+          uri: lb://REPLY
+          predicates:
+            - Path=/reply-api/**
+
+        - id: memo
+          uri: lb://MEMO
+          predicates:
+            - Path=/memo/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: memo-api
+          uri: lb://MEMO
+          predicates:
+            - Path=/memo-api/**
+
+        - id: whentomeet
+          uri: lb://WHENTOMEET
+          predicates:
+            - Path=/when-to-meet/**, /timetable/**
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
+        - id: whentomeet-api
+          uri: lb://WHENTOMEET
+          predicates:
+            - Path=/when-to-meet-api/**
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /v3/swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /member-api/v3/api-docs
+        name: Member
+      - url: /channel-api/v3/api-docs
+        name: Channel
+      - url: /schedule-api/v3/api-docs
+        name: Schedule
+      - url: /board-api/v3/api-docs
+        name: Board
+      - url: /reply-api/v3/api-docs
+        name: Reply
+      - url: /memo-api/v3/api-docs
+        name: Memo
+      - url: /when-to-meet-api/v3/api-docs
+        name: WhenToMeet
+
+eureka:
+  instance:
+    hostname: 172.16.212.76
+  client:
+    register-with-eureka: true # ??? ???? (???) ?? ??
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://172.16.212.76:8761/eureka
+
+jwt:
+  secret: /vUwAz/Vx78zX5/E4v6kjfbyoTRpYtOK2WT9rYcXeNPzDMuv1BlehYL113paVVYvUTyUIYg3kSZglWjEAJxgMw==
