@@ -1,5 +1,5 @@
 # 1단계: 빌드 단계
-FROM gradle:7.3.3-jdk17 AS build
+FROM gradle:8.1.0-jdk17 AS build
 WORKDIR /app
 
 # Gradle 빌드에 필요한 소스와 build.gradle, settings.gradle, Gradle Wrapper를 복사
