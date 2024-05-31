@@ -31,7 +31,6 @@ spring:
               - OPTIONS
 
       routes:
-
         - id: channel
           uri: lb://CHANNEL
           predicates:
@@ -50,11 +49,11 @@ spring:
           uri: lb://MEMBER
           predicates:
             - Path=/member/**
-          filters:
-            - name: PreGatewayAuthorizationFilterFactory
-              args:
-                headerName: Authorization
-                granted: Bearer
+#          filters:
+#            - name: PreGatewayAuthorizationFilterFactory
+#              args:
+#                headerName: Authorization
+#                granted: Bearer
         - id: member-api
           uri: lb://MEMBER
           predicates:
