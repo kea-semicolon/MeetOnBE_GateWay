@@ -134,7 +134,7 @@ spring:
             - Path=/when-to-meet-api/**
 
         - id: meeting-minutes
-          uri: lb://WHENTOMEET
+          uri: lb://MEETINGMINUTES
           predicates:
             - Path=/meeting-minutes/**
               #          filters:
