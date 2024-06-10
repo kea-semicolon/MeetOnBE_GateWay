@@ -133,7 +133,7 @@ spring:
           predicates:
             - Path=/when-to-meet-api/**
 
-        - id: meeting-minutes
+        - id: meetingminutes
           uri: lb://MEETINGMINUTES
           predicates:
             - Path=/meeting-minutes/**
@@ -142,7 +142,7 @@ spring:
               #              args: # Config 클래스에 사용할 멤버변수 정의
               #                headerName: Authorization
               #                granted: Bearer
-        - id: meeting-minutes-api
+        - id: meetingminutes-api
           uri: lb://MEETINGMINUTES
           predicates:
             - Path=/meeting-minutes-api/**
