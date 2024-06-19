@@ -49,11 +49,11 @@ spring:
           uri: lb://MEMBER
           predicates:
             - Path=/member/**
-#          filters:
-#            - name: PreGatewayAuthorizationFilterFactory
-#              args:
-#                headerName: Authorization
-#                granted: Bearer
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory
+              args:
+                headerName: Authorization
+                granted: Bearer
         - id: member-api
           uri: lb://MEMBER
           predicates:
@@ -81,11 +81,11 @@ spring:
           uri: lb://BOARD
           predicates:
             - Path=/board/**
-#          filters:
-#            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
-#              args: # Config 클래스에 사용할 멤버변수 정의
-#                headerName: Authorization
-#                granted: Bearer
+          filters:
+            - name: PreGatewayAuthorizationFilterFactory # 적용할 필터 팩토리이름
+              args: # Config 클래스에 사용할 멤버변수 정의
+                headerName: Authorization
+                granted: Bearer
         - id: board-api
           uri: lb://BOARD
           predicates:
