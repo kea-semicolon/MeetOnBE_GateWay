@@ -1,3 +1,37 @@
+# Connected Client Server
+
+- Channel Server
+  
+  [채널 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Channel)
+
+- 회의 Server
+
+  [회의 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Meeting_Minutes)
+
+- 게시글 Server
+
+  [게시글 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Board)
+
+- Member Server
+
+  [멤버 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Member)
+
+- WhenToMeet Serever
+
+  [웬투밋 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_WhenToMeet)
+
+- 일정 Server
+
+  [일정 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Schedule)
+
+- 댓글 Server
+
+  [댓글 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBE_Reply)
+
+- Memo Server
+
+  [메모 서버 레포지토리](https://github.com/kea-semicolon/MeetOnBe_Memo)
+
 # Spring Boot Version
 
 ### 3.2.4
