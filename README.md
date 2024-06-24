@@ -1,3 +1,6 @@
+<img src="https://github.com/kea-semicolon/MeetOnBE_GateWay/assets/127479677/b89de100-d51d-4841-abf4-5769aa07f7f4" width="10%" height="10%" align="center">
+
+
 # Connected Client Server
 
 - Channel Server
