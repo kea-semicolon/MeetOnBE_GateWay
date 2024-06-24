@@ -78,7 +78,7 @@ MSA 기준 각 테이블이 다른 서버에 있지만 편의상 한 페이지�
 
   <img src="https://github.com/kea-semicolon/MeetOnBE_GateWay/assets/127479677/11f83f9c-cdce-43fe-bd82-51847521b28c" width="60%" height="40%">
 
-+ 팀 칸반 보드
++ 팀 간트 차트
 
   <img src="https://github.com/kea-semicolon/MeetOnBE_GateWay/assets/127479677/e28d1588-aff6-4c3c-a9db-f7e05a5075ca" width="60%" height="40%">
 
